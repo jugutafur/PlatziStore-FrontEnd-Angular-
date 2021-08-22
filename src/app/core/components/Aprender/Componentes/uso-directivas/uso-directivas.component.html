@@ -1,0 +1,75 @@
+<p>prueba an</p>
+<!-- para usar [(ngModule)] se debe de importar en el control FormsModule -->
+<input type="text" [(ngModel)]="title" />
+<p>esta esta en la variable title = {{ title }}</p>
+
+<!-- directiva ngIf -->
+
+<div *ngIf="title === 'Store'; then store; else welcome">Simple vista</div>
+<!-- Vista o template-->
+<ng-template #store> Mostrando contenido </ng-template>
+
+<ng-template #welcome> Bienvenido a Platzi Store </ng-template>
+
+<!-- renderiza dependiendo de variable string -->
+<p>if con and</p>
+<div *ngIf="name === 'juan' && lastname === 'tafur'">
+    <p>Mi nombre es: {{ name }} {{ lastname }}</p>
+</div>
+
+<p>if con or</p>
+<div *ngIf="name === 'juan' || lastname === 'tafur'">
+    <p>Mi nombre es: {{ name }} {{ lastname }}</p>
+</div>
+
+<!-- renderiza dependiendo de variable boolean -->
+<ng-template [ngIf]="isLoggedIn" [ngIfElse]="loggedOut">
+    <div>Welcome back, friend.</div>
+</ng-template>
+
+<ng-template #loggedOut>
+    <div>Please friend, login.</div>
+</ng-template>
+
+<!-- renderizar un array con ngFor -->
+
+<div *ngFor="let i of items">
+    <p>{{ i }}</p>
+</div>
+
+<!-- trabajo con arrays -->
+<div>
+    <p>trabajo con arrays</p>
+    <button (click)="addItemFinal()">agregar push(valorx) al final</button>
+    <button (click)="deleteItem(1, 2)">agregar splice(posicion, cantidad a quitar, 'valor1', 'valor2'..), </button><br/>
+    <!-- <button (click)="deleteItem(2)">agrear items</button> -->
+    <!-- <button (click)="resetArrayDias(i)">reset</button> -->
+</div>
+
+<ng-container *ngIf="resetArray">
+    <p *ngIf="dias.length === 0"> la lista esta vacia</p>  <!--si la lista esta vacia se muestra esta p-->
+    <div *ngFor="let dias of dias; index as i">
+        {{dias}} y index = {{i}}
+        <button (click)="EliminarXitem(i)" >Eliminar</button>
+    </div>
+</ng-container>
+
+<!-- trabajo con ngSwitch -->
+<div *ngIf="title === 'juan'">
+    <p>este es juan</p>
+</div>
+<div *ngIf="title === 'guillermo'">
+    <p>este es guillermo</p>
+</div>
+
+<div *ngIf="title === 'tafur'">
+    <p>este es tafur</p>
+</div>
+
+
+<div [ngSwitch]="title">
+    <p *ngSwitchCase="'juan'">este es juan desde ngSwitch</p>
+    <p *ngSwitchCase="'guillermo'">este es guillermo desde ngSwitch</p>
+    <p *ngSwitchCase="'tafur'">este es tafur desde ngSwitch</p>
+    <p *ngSwitchDefault>default ngSwitch</p>
+</div>

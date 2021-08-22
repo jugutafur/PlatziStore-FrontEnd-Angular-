@@ -1,0 +1,32 @@
+<div>
+  <p>This is a project Platzi Store</p>
+  <nav>
+      <ul>
+          <li *ngFor="let i of menu" >
+              <a 
+                routerLink="/{{i}}" 
+                routerLinkActive="active">{{i}}
+              </a>
+          </li>
+      </ul>
+  </nav>
+</div>
+
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide" *ngFor="let img of images">
+            <img [src]="img" alt="imagen de banner">
+        </div>
+    </div>
+</div>
+
+<!-- <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" *ngFor="let img of images">
+        <img [src]="img" alt="" />
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+    </div>
+  </div> -->
+

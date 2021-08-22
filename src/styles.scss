@@ -1,0 +1,34 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.product-grid {
+    display: grid;
+    background-color: blue;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 20px;
+    column-gap: 20px;
+}
+
+@media (min-width: 576px) {
+    .product-grid {
+        background-color: red;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(min-width:768px) {
+    .product-grid {
+        background-color: yellow;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media(min-width:992px) {
+    .product-grid {
+        background-color: green;
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
