@@ -6,6 +6,8 @@ import { FormsModule } from '@angular/forms';
 import { AprenderModule } from './components/Aprender/aprender.module';
 import { PlatziStoreModule } from './components/proyectoPlatziStore/platziStore.module';
 
+import { ProductsService } from './services/products.service';
+
 @NgModule ({
   declarations: [],
   imports: [
@@ -14,7 +16,10 @@ import { PlatziStoreModule } from './components/proyectoPlatziStore/platziStore.
       AprenderModule,
       PlatziStoreModule
   ],
-  exports:[]
+  exports:[],
+  providers:[
+    ProductsService
+  ]
 })
 
 export class CoreModule { }

@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class MainPlatziStoreComponent {
 
+  RecibirSalida(data: string ){
+    console.log(data)
+  }
+
 }

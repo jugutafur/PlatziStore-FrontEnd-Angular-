@@ -13,8 +13,8 @@ export class ProductComponent implements OnInit {
 
   @Input() Entrada;
 
-// para sacar algun dato de este componente <tipo de dato que queremos sacar>
-  @Output() Salida= new EventEmitter<any>(); 
+  // para sacar algun dato de este componente <tipo de dato que queremos sacar>
+  @Output() salida= new EventEmitter<any>(); 
   // tambien podemos inicializar esta variable de esta manera 
   // @Output() Salida2:  EventEmitter<number> = new EventEmitter(9);
 
@@ -31,7 +31,7 @@ export class ProductComponent implements OnInit {
 
   Comprar(){
     console.log("haz hecho click");
-    this.Salida.emit("Dato de Salida desde Hijo");
+    this.salida.emit("Dato de Salida desde Hijo");
   }
 
   

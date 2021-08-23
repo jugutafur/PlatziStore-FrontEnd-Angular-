@@ -5,6 +5,8 @@ import { LAprenderComponent } from './layout/l-aprender/l-aprender.component';
 import { LPlatziStoreComponent } from './layout/l-platzi-store/l-platzi-store.component';
 import { PageNotFoundComponent } from './core/components/Aprender/Componentes/page-not-found/page-not-found.component';
 
+import { AdminGuard } from './core/guards/admin.guard';
+
 // pathMatch: full  significa cuando la url esta sola en seco 
 const routes: Routes = [
   {
@@ -15,6 +17,7 @@ const routes: Routes = [
   {
     path: 'Estudiar',
     component: LAprenderComponent,
+    canActivate: [AdminGuard],
     loadChildren: () => import('./core/components/Aprender/aprender.module').then(m=> m.AprenderModule)
   },
   {
