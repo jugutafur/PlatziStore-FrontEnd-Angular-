@@ -7,6 +7,7 @@ import { AprenderModule } from './components/Aprender/aprender.module';
 import { PlatziStoreModule } from './components/proyectoPlatziStore/platziStore.module';
 
 import { ProductsService } from './services/products.service';
+// import { MaterialModule } from '../material/material.module';
 
 @NgModule ({
   declarations: [],
@@ -14,7 +15,8 @@ import { ProductsService } from './services/products.service';
       CommonModule,
       FormsModule,
       AprenderModule,
-      PlatziStoreModule
+      PlatziStoreModule,
+      // MaterialModule
   ],
   exports:[],
   providers:[

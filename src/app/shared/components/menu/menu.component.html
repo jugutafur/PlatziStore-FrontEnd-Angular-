@@ -1,4 +1,26 @@
-<div>
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <div class="row between-xs middle-xs header-row">
+      <div>
+        <nav *ngFor="let i of menu">
+          <a 
+            mat-button
+            routerLink="/{{i}}" 
+            routerLinkActive="active">{{i}}
+          </a>
+        </nav>
+      </div>
+      <div>
+        <a mat-raised-button matBadge="4" matBadgeColor="accent">
+          <mat-icon>shopping_cart</mat-icon>
+          Carrito
+        </a>
+      </div>
+      </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<!-- <div>
   <p>This is a project Platzi Store</p>
   <nav>
       <ul>
@@ -10,7 +32,7 @@
           </li>
       </ul>
   </nav>
-</div>
+</div> -->
 
 <div class="swiper-container">
     <div class="swiper-wrapper">

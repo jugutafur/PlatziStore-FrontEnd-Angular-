@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 
-
 import { ExponentialPipe } from './pipes/exponential.pipe';
 import { MenuComponent } from './components/menu/menu.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { HighlightDirective } from './directives/highlight.directive';
 
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { HighlightDirective } from './directives/highlight.directive';
+import { MaterialModule } from '../material/material.module';
+
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HighlightDirective } from './directives/highlight.directive';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    MaterialModule
   ],
   exports:[
     ExponentialPipe,

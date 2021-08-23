@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
 import { AprenderRoutingModule } from './aprender-rounting.module';
 
 import { SharedModule } from '../../../shared/shared.module';
+import { MaterialModule } from '../../../material/material.module';
 
 @NgModule ({
     declarations:[
@@ -22,7 +23,8 @@ import { SharedModule } from '../../../shared/shared.module';
         FormsModule,
         CommonModule,
         AprenderRoutingModule,
-        SharedModule
+        SharedModule,
+        MaterialModule
     ],
     exports:[]
 })
