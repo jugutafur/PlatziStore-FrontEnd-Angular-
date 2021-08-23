@@ -42,6 +42,16 @@ export class UsoDirectivasComponent {
     // document.getElementById("demo").innerHTML = fruits.toString();
   }
 
+  object : Object  = {var1:'UNO', var2:'DOS', var3:'TRES' }
+
+  power = 10;
+
+  value: string ='prueba de pipe LOWERCASE';
+  // value!: string;
+  // change(value: string) {
+  //   this.value = value;
+  // }
+
   addItemFinal() {
     // push = agregar al final
     this.dias.push(this.title);

@@ -73,3 +73,17 @@
     <p *ngSwitchCase="'tafur'">este es tafur desde ngSwitch</p>
     <p *ngSwitchDefault>default ngSwitch</p>
 </div>
+
+<p>this is pipes that you can use transcript in json  = {{object | json}}</p>
+
+<p>this is pipe lowerCasepipe = {{value |lowercase}}</p>
+
+<!-- <input #name (keyup)="change(name.value)" type="text"/> -->
+    <p>In lowercase: {{value | lowercase}}</p>
+    <p>In uppercase: {{value | uppercase}}</p>
+
+<!-- <input type="text" [(ngModel)]="title" /> -->
+<input type="text" [(ngModel)]="power" />
+<p>la salida de power es = {{power | exponential }}</p>
+
+<p appHighlight >this a test of directive</p>

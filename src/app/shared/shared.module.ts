@@ -7,20 +7,24 @@ import { FooterComponent } from './components/footer/footer.component';
 
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { HighlightDirective } from './directives/highlight.directive';
 
 @NgModule({
   declarations: [
     ExponentialPipe,
     MenuComponent,
-    FooterComponent
+    FooterComponent,
+    HighlightDirective
   ],
   imports: [
     CommonModule,
     RouterModule
   ],
   exports:[
+    ExponentialPipe,
     MenuComponent,
-    FooterComponent
+    FooterComponent,
+    HighlightDirective
   ]
 })
 export class SharedModule { }

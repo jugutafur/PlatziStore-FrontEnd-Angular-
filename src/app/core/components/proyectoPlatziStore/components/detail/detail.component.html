@@ -1,0 +1,7 @@
+<div>
+    <p>{{product.title}}</p>
+    <img [src]="product.image" alt="">
+    <p>Description: {{product.description}}</p>
+    <p>Price{{product.price | currency: 'USD'}}</p>
+    <button (click)="Comprar()" >Comprar!!</button>
+</div>

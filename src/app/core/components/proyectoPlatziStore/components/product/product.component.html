@@ -2,15 +2,17 @@
 <div>
     <div class="product-grid">
         <div class="container" *ngFor="let products of products"> 
-            title= {{products.title | uppercase}}
-            <img [src]=products.image alt="products.description">
-            price = {{products.price | currency: 'EUR'}}
-            description={{products.description | slice:0:6 }}
+            Title= {{products.title | uppercase}}
+            <a [routerLink]="['Product', products.id]">
+                <img [src]=products.image alt="products.description">
+            </a>
+            Price = {{products.price | currency: 'EUR'}}
+            Description={{products.description | slice:0:6 }} <br>
+            <button (click)="Comprar()" >Comprar!!</button>
         </div>
     </div>
     
     <div>
-        <button (click)="Comprar()" >Comprar!!</button>
         <p>este es un parrafo de prueba para la Entrada = {{Entrada}}</p>
     </div>
 </div>

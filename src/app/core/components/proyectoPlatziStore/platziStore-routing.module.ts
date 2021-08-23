@@ -3,6 +3,7 @@ import { RouterModule, Routes, PreloadAllModules} from '@angular/router';
 
 import { MainPlatziStoreComponent } from './components/main-platzi-store/main-platzi-store.component';
 import { ProductComponent } from './components/product/product.component';
+import { DetailComponent } from './components/detail/detail.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
@@ -18,6 +19,10 @@ const routes : Routes = [
     {
         path:'Productos',
         component: ProductComponent
+    },
+    {
+        path:'Productos/Product/:id',
+        component: DetailComponent
     },
     {
         path:'Contact',

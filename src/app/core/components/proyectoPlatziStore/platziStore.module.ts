@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
 // import { RouterModule } from '@angular/router';
 import { PlatziStoreRoutingModule } from './platziStore-routing.module';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { DetailComponent } from './components/detail/detail.component';
 
 @NgModule ({
     declarations:[
@@ -17,7 +18,8 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
         ProductComponent,
         MainPlatziStoreComponent,
         MenuPlatziStoreComponent,
-        PageNotFoundComponent
+        PageNotFoundComponent,
+        DetailComponent
     ],
     imports: [
         CommonModule,
