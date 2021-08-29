@@ -23,3 +23,9 @@ describe('MainAprenderComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
+describe("main-aprender component", ()=>{
+  it("Should return a string ", ()=>{
+    expect(6+3).toEqual(9);
+  });
+});

@@ -6,7 +6,13 @@ import { dias } from '../../../../models/general/general';
   templateUrl: './uso-directivas.component.html',
   styleUrls: ['./uso-directivas.component.scss']
 })
+
+// export const sumar=(a,b)=>a +b;
 export class UsoDirectivasComponent {
+
+  public a: number;
+  public b: number;
+
 
   title = 'Store';
   public name: string;
