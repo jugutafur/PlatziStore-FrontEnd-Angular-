@@ -20,12 +20,12 @@ describe("UsoDirectivasComponent",() =>{
         });
     });
     
-    // describe("addItemFinal() ",()=>{
-    //     it("Should return array + new element in the end ", ()=>{
-    //         const word : string = 'home'
-    //         expect(app.addItemFinal(word)).toEqual(['lunes','martes','miercoles','jueves','viernes','sabado','domingo','home']);
-    //     });
-    // });
+    describe("addItemFinal() ",()=>{
+        it("Should return array + new element in the end ", ()=>{
+            const word : string = 'home'
+            expect(app.addItemFinal(word)).toEqual(['lunes','martes','miercoles','jueves','viernes','sabado','domingo','home']);
+        });
+    });
 
     describe("deleteItem()", ()=>{
         it("should return, string[] ", ()=>{
