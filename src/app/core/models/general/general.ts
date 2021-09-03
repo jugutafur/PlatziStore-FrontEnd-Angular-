@@ -1,4 +1,4 @@
-export interface dias{
+export interface Dias{
     lunes: string;
     martes: string;
     miercoles: string;

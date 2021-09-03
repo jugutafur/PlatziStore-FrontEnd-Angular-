@@ -17,6 +17,7 @@ import { ProductsService } from '../../../../services/products.service';
 export class DetailComponent implements OnInit {
 
   public product : Product;
+  public myObject = {nombre: "juan", apellido:"tafur", edad:"32"};
 
   constructor(
     private activatedRoute: ActivatedRoute,

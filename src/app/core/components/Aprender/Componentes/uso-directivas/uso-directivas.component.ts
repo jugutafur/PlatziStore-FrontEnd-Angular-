@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { dias } from '../../../../models/general/general';
+import { Component, OnInit } from '@angular/core';
+import { Dias } from '../../../../models/general/general';
 
 @Component({
   selector: 'app-uso-directivas',
@@ -8,19 +8,16 @@ import { dias } from '../../../../models/general/general';
 })
 
 // export const sumar=(a,b)=>a +b;
-export class UsoDirectivasComponent {
+export class UsoDirectivasComponent implements OnInit {
 
-  public a: number;
-  public b: number;
-
-
+  public saludar = (nombre, apellido) => `hola ${nombre} ${apellido}`;
   title = 'Store';
   public name: string;
   public lastname: string;
   public isLoggedIn: boolean;
   public resetArray: boolean;
   items = ['juan', 'guillermo', 'tafur', 'ramirez'];
-  semana: dias = {
+  semana: Dias = {
     lunes: '',
     martes: '',
     miercoles: '',
@@ -29,15 +26,10 @@ export class UsoDirectivasComponent {
     sabado: '',
     domingo: '',
   };
-  dias = [
-    'lunes',
-    'martes',
-    ' miercolers',
-    'jueves',
-    'viernes',
-    'sabado',
-    'domingo',
-  ];
+  dias = ['lunes','martes','miercoles','jueves','viernes','sabado','domingo'];
+  Cdias= this.dias.slice();
+  MostrarDias: string[];
+ 
 
   constructor() {
     this.name = 'juan';
@@ -58,28 +50,65 @@ export class UsoDirectivasComponent {
   //   this.value = value;
   // }
 
-  addItemFinal() {
+  ngOnInit():void{
+    console.log(this.dias);
+  }
+  addItemFinal(word: string): string[] {
     // push = agregar al final
-    this.dias.push(this.title);
+    this.Cdias.push(word);
+    return this.MostrarDias= this.Cdias.slice();
   }
 
-  deleteItem(index: number, quitar: number) {
-    // El primer parámetro (2) define la posición donde se deben agregar nuevos elementos (empalmados).
-    // El segundo parámetro (0) define cuántos elementos se deben quitar.
-    // Elementos a agregar
-    this.dias.splice(index, quitar, 'perro', 'gato', 'casa');
+  // El primer parámetro (2) define la posición donde se deben agregar nuevos elementos (empalmados).
+  // El segundo parámetro (0) define cuántos elementos se deben quitar.
+  // Elementos a agregar
+  deleteItem(index: number, quitar: number): string[] {
+    // return this.dias.splice(index, quitar, 'perro', 'gato', 'casa');
+    this.Cdias.splice(index, quitar);
+    return this.MostrarDias= this.Cdias.slice();
   }
 
-  resetArrayDias(i: number) {
-    this.resetArray = false;
+  resetArrayDias(): string[] {
+    this.Cdias= this.dias.slice();
+    return this.MostrarDias= this.Cdias.slice();
   }
 
-  EliminarXitem(index: number){
-    this.dias.splice(index,1)
+  EliminarXitem(index: number): any{
+    return this.dias.splice(index,1)
   }
 
-  AgarrarSalidadeHijo(SalidaDeHijo: string){
-    console.log('haz agarrado el string de hijo= ', SalidaDeHijo);
+  AgarrarSalidadeHijo(SalidaDeHijo: string): string{
+    return "haz agarrado el string de hijo= "+ SalidaDeHijo
   }
 
+  outConsole(){
+    console.log(this.saludar("Juan", "tafur"))
+  }
+
+  obtenerMeses(){
+    const  mesActual = function(){
+      return 'Agosto';
+    }
+
+    const mesSiguiente = function(){
+      return 'Septiembre';
+    }
+  }
+
+  mesesCalculador(){
+    let api = new this.obtenerMeses();
+
+    let mesSigu = function(){
+      return api.mesSiguiente();
+    }
+
+    let mesAct = function(){
+      return api.mesActual();
+    }
+  }
+
+  suma(a: number, b:number):number{
+    const result= a+b;
+    return result
+  }
 }

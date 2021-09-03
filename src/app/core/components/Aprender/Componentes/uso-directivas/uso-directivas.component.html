@@ -39,13 +39,14 @@
 <!-- trabajo con arrays -->
 <div>
     <p>trabajo con arrays</p>
-    <button (click)="addItemFinal()">agregar push(valorx) al final</button>
+    <button (click)="addItemFinal('NewElement')">agregar push(valorx) al final</button>
     <button (click)="deleteItem(1, 2)">agregar splice(posicion, cantidad a quitar, 'valor1', 'valor2'..), </button><br/>
     <!-- <button (click)="deleteItem(2)">agrear items</button> -->
-    <!-- <button (click)="resetArrayDias(i)">reset</button> -->
+    <button (click)="resetArrayDias()">reset Array</button>
+    <textarea name="outArray" id="outArray" cols="30" rows="10" >{{MostrarDias}}</textarea>
 </div>
 
-<ng-container *ngIf="resetArray">
+<ng-container *ngIf="resetArray">   
     <p *ngIf="dias.length === 0"> la lista esta vacia</p>  <!--si la lista esta vacia se muestra esta p-->
     <div *ngFor="let dias of dias; index as i">
         {{dias}} y index = {{i}}
@@ -89,3 +90,6 @@
 
 <p>el siguient boton es una prueba para ver material desing</p>
 <button mat-raised-button color="primary">Primary</button>
+
+<p>sacar por consola el valor de una variable que depende de una funcion</p>
+<!-- <button mat-raised-button color="primary" (click)="outConsole()">imprimir por consola</button> -->
