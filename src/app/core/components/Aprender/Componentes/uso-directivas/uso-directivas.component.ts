@@ -2,113 +2,113 @@ import { Component, OnInit } from '@angular/core';
 import { Dias } from '../../../../models/general/general';
 
 @Component({
-  selector: 'app-uso-directivas',
-  templateUrl: './uso-directivas.component.html',
-  styleUrls: ['./uso-directivas.component.scss']
+	selector: 'app-uso-directivas',
+	templateUrl: './uso-directivas.component.html',
+	styleUrls: ['./uso-directivas.component.scss']
 })
 
 // export const sumar=(a,b)=>a +b;
 export class UsoDirectivasComponent implements OnInit {
 
-  public saludar = (nombre, apellido) => `hola ${nombre} ${apellido}`;
-  title = 'Store';
-  public name: string;
-  public lastname: string;
-  public isLoggedIn: boolean;
-  public resetArray: boolean;
-  items = ['juan', 'guillermo', 'tafur', 'ramirez'];
-  semana: Dias = {
-    lunes: '',
-    martes: '',
-    miercoles: '',
-    jueves: '',
-    viernes: '',
-    sabado: '',
-    domingo: '',
-  };
-  dias = ['lunes','martes','miercoles','jueves','viernes','sabado','domingo'];
-  Cdias= this.dias.slice();
-  MostrarDias: string[];
- 
+	saludar = (nombre, apellido) => `hola ${nombre} ${apellido}`;
+	title = 'Store';
+	name: string;
+	lastname: string;
+	isLoggedIn: boolean;
+	resetArray: boolean;
+	items = ['juan', 'guillermo', 'tafur', 'ramirez'];
+	semana: Dias = {
+		lunes: '',
+		martes: '',
+		miercoles: '',
+		jueves: '',
+		viernes: '',
+		sabado: '',
+		domingo: '',
+	};
+	dias = ['lunes','martes','miercoles','jueves','viernes','sabado','domingo'];
+	Cdias= this.dias.slice();
+	MostrarDias: string[];
 
-  constructor() {
-    this.name = 'juan';
-    this.lastname = 'tafur';
-    this.isLoggedIn = false;
-    this.resetArray = true;
-    const fruits = ['Banana', 'Orange', 'Apple', 'Mango'];
-    // document.getElementById("demo").innerHTML = fruits.toString();
-  }
 
-  object : Object  = {var1:'UNO', var2:'DOS', var3:'TRES' }
+	constructor() {
+		this.name = 'juan';
+		this.lastname = 'tafur';
+		this.isLoggedIn = false;
+		this.resetArray = true;
+		const fruits = ['Banana', 'Orange', 'Apple', 'Mango'];
+		// document.getElementById("demo").innerHTML = fruits.toString();
+	}
 
-  power = 10;
+	object : Object  = {var1:'UNO', var2:'DOS', var3:'TRES' }
 
-  value: string ='prueba de pipe LOWERCASE';
-  // value!: string;
-  // change(value: string) {
-  //   this.value = value;
-  // }
+	power = 10;
 
-  ngOnInit():void{
-    console.log(this.dias);
-  }
-  addItemFinal(word: string): string[] {
-    // push = agregar al final
-    this.Cdias.push(word);
-    return this.MostrarDias= this.Cdias.slice();
-  }
+	value: string ='prueba de pipe LOWERCASE';
+	// value!: string;
+	// change(value: string) {
+	//   this.value = value;
+	// }
 
-  // El primer parámetro (2) define la posición donde se deben agregar nuevos elementos (empalmados).
-  // El segundo parámetro (0) define cuántos elementos se deben quitar.
-  // Elementos a agregar
-  deleteItem(index: number, quitar: number): string[] {
-    // return this.dias.splice(index, quitar, 'perro', 'gato', 'casa');
-    this.Cdias.splice(index, quitar);
-    return this.MostrarDias= this.Cdias.slice();
-  }
+	ngOnInit():void{
+	}
+	
+	addItemFinal(word: string): string[] {
+		// push = agregar al final
+		this.Cdias.push(word);
+		return this.MostrarDias= this.Cdias.slice();
+	}
 
-  resetArrayDias(): string[] {
-    this.Cdias= this.dias.slice();
-    return this.MostrarDias= this.Cdias.slice();
-  }
+	// El primer parámetro (2) define la posición donde se deben agregar nuevos elementos (empalmados).
+	// El segundo parámetro (0) define cuántos elementos se deben quitar.
+	// Elementos a agregar
+	deleteItem(index: number, quitar: number): string[] {
+		// return this.dias.splice(index, quitar, 'perro', 'gato', 'casa');
+		this.Cdias.splice(index, quitar);
+		return this.MostrarDias= this.Cdias.slice();
+	}
 
-  EliminarXitem(index: number): any{
-    return this.dias.splice(index,1)
-  }
+	resetArrayDias(): string[] {
+		this.Cdias= this.dias.slice();
+		return this.MostrarDias= this.Cdias.slice();
+	}
 
-  AgarrarSalidadeHijo(SalidaDeHijo: string): string{
-    return "haz agarrado el string de hijo= "+ SalidaDeHijo
-  }
+	EliminarXitem(index: number): any{
+		return this.dias.splice(index,1)
+	}
 
-  outConsole(){
-    console.log(this.saludar("Juan", "tafur"))
-  }
+	AgarrarSalidadeHijo(SalidaDeHijo: string): string{
+		return "haz agarrado el string de hijo= "+ SalidaDeHijo
+	}
 
-  obtenerMeses(){
-    const  mesActual = function(){
-      return 'Agosto';
-    }
+	outConsole(){
+		console.log(this.saludar("Juan", "tafur"))
+	}
 
-    const mesSiguiente = function(){
-      return 'Septiembre';
-    }
-  }
+	obtenerMeses(){
+		const  mesActual = function(){
+			return 'Agosto';
+		}
 
-  mesesCalculador(){
-    let api = new this.obtenerMeses();
+		const mesSiguiente = function(){
+			return 'Septiembre';
+		}
+	}
 
-    let mesSigu = function(){
-      return api.mesSiguiente();
-    }
+	mesesCalculador(){
+		let api = new this.obtenerMeses();
 
-    let mesAct = function(){
-      return api.mesActual();
-    }
-  }
+		let mesSigu = function(){
+			return api.mesSiguiente();
+		}
 
-  suma(a: number, b:number):number{
-    const result= a+b;
-    return result
-  }
+		let mesAct = function(){
+			return api.mesActual();
+		}
+	}
+
+	suma(a: number, b:number):number{
+		const result= a+b;
+		return result
+	}
 }

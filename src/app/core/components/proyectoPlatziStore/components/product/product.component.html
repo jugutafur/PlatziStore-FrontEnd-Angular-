@@ -1,18 +1,28 @@
 <app-menu-platzi-store></app-menu-platzi-store>
-<div>
-    <div class="product-grid">
-        <div class="container" *ngFor="let products of products"> 
-            Title= {{products.title | uppercase}}
-            <a [routerLink]="['Product', products.id]">
-                <img [src]=products.image alt="products.description">
-            </a>
-            Price = {{products.price | currency: 'EUR'}}
-            Description={{products.description | slice:0:6 }} <br>
-            <button (click)="Comprar()" >Comprar!!</button>
+<div class="row">
+    <div class="container col-xs-11" >
+        <div *ngFor="let products of products"> 
+            <div>
+                <mat-card>
+                    <mat-card-header>
+                        <mat-card-title>{{products.title | uppercase}}</mat-card-title>
+                        <mat-card-subtitle>{{products.price | currency: 'EUR'}}</mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <a [routerLink]="['Product', products.id]">
+                            <img [src]=products.image alt="products.description">
+                        </a>
+                        Price = 
+                        Description={{products.description | slice:0:6 }} <br>
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <button (click)="Comprar()" >Comprar!!</button>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
         </div>
-    </div>
-    
-    <div>
-        <p>este es un parrafo de prueba para la Entrada = {{Entrada}}</p>
+        <div>
+            <p>este es un parrafo de prueba para la Entrada = {{Entrada}}</p>
+        </div>
     </div>
 </div>

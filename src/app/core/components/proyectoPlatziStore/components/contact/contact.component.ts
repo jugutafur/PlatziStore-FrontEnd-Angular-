@@ -7,6 +7,6 @@ import { Component } from '@angular/core';
 })
 export class ContactComponent {
 
-  public enviar: string = "Prueba Dos";
+  enviar: string = "Prueba Dos";
 
 }

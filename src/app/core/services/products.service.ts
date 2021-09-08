@@ -53,11 +53,15 @@ export class ProductsService {
 
   constructor() { }
 
-  getAllProducts(){
+  getAllProducts() :Product[]{
     return this.products;
   }
 
-  getProduct(id: string){
+  getProduct(id: string) :Product{
     return this.products.find(element => id === element.id)
-  } 
+  }
+  
+  getTest(): boolean{
+    return true ;
+  }
 }

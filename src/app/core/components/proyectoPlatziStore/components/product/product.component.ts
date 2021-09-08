@@ -9,6 +9,7 @@ import { ProductsService } from '../../../../services/products.service';
 })
 export class ProductComponent implements OnInit {
 
+  okTest :boolean = false;
   products: Product[];
 
   @Input() Entrada;
@@ -29,10 +30,15 @@ export class ProductComponent implements OnInit {
     this.products =this.productsService.getAllProducts();
   }
 
-  Comprar(){
+  Comprar(): boolean{
     console.log("haz hecho click");
     this.salida.emit("Dato de Salida desde Hijo");
+    this.okTest = true;
+    return this.okTest;
   }
 
+  getTextService(): boolean{
+    return this.productsService.getTest();
+  }
   
 }
