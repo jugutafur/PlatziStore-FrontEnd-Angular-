@@ -1,4 +1,9 @@
 <app-menu-platzi-store></app-menu-platzi-store>
+<div>
+    <button mat-raised-button color="primary" (click)="CrearProduct()" >Crear Product</button>
+    <button mat-raised-button color="primary" (click)="EditarProduct()" >Editar Product</button>
+    <button mat-raised-button color="primary" (click)="DeleteProduct()" >Eliminar Product</button>
+</div>
 <div class="row">
     <div class="container col-xs-11" >
         <div *ngFor="let products of products"> 
@@ -8,15 +13,40 @@
                         <mat-card-title>{{products.title | uppercase}}</mat-card-title>
                         <mat-card-subtitle>{{products.price | currency: 'EUR'}}</mat-card-subtitle>
                     </mat-card-header>
-                    <mat-card-content>
+                    <div class="crop-image">
                         <a [routerLink]="['Product', products.id]">
                             <img [src]=products.image alt="products.description">
                         </a>
-                        Price = 
-                        Description={{products.description | slice:0:6 }} <br>
+                    </div>
+                    <mat-card-content>
+                        Description={{products.description | slice:0:20 }} <br>
                     </mat-card-content>
                     <mat-card-actions>
-                        <button (click)="Comprar()" >Comprar!!</button>
+                        <button mat-raised-button color="primary" (click)="Comprar()" >Comprar!!</button>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
+        </div>
+        <p>Products from Platzi store </p>
+        <div *ngFor="let products of pro"> 
+            <div>
+                <mat-card>
+                    <mat-card-header>
+                        <mat-card-title>{{products.title | uppercase}}</mat-card-title>
+                        <mat-card-subtitle>{{products.price | currency: 'EUR'}}</mat-card-subtitle>
+                    </mat-card-header>
+                    <div class="crop-image">
+                        <a [routerLink]="['Product', products.id]">
+                            <img [src]=products.image alt="products.description">
+                        </a>
+                    </div>
+                    <mat-card-content>
+                        Description={{products.description | slice:0:40 }} <br>
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <button mat-raised-button color="primary" (click)="Comprar()" >Comprar!!
+                            <mat-icon>shopping_cart</mat-icon>
+                        </button>
                     </mat-card-actions>
                 </mat-card>
             </div>

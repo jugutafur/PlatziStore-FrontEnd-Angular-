@@ -1,11 +1,15 @@
-<div>
-    <ul>
-        <li *ngFor="let menu of lista">
-            <a  routerLink="/Platzi/{{menu}}"
-                routerLinkActive="active">
-                {{menu}}
-            </a>
-        </li>
-    </ul>
-    <p>Esta es una prueba de = {{Entrada}}</p>
-</div>
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <div>
+            <ul>
+                <li *ngFor="let menu of lista">
+                    <a  routerLink="/Platzi/{{menu}}"
+                        routerLinkActive="active">
+                        {{menu}}
+                    </a>
+                </li>
+            </ul>
+        </div>        
+    </mat-toolbar-row>
+</mat-toolbar>
+<p>Esta es una prueba de = {{Entrada}}</p>

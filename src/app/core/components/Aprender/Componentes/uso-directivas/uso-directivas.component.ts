@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Dias } from '../../../../models/general/general';
 
 @Component({
@@ -8,7 +8,7 @@ import { Dias } from '../../../../models/general/general';
 })
 
 // export const sumar=(a,b)=>a +b;
-export class UsoDirectivasComponent implements OnInit {
+export class UsoDirectivasComponent{
 
 	saludar = (nombre, apellido) => `hola ${nombre} ${apellido}`;
 	title = 'Store';
@@ -50,8 +50,6 @@ export class UsoDirectivasComponent implements OnInit {
 	//   this.value = value;
 	// }
 
-	ngOnInit():void{
-	}
 	
 	addItemFinal(word: string): string[] {
 		// push = agregar al final

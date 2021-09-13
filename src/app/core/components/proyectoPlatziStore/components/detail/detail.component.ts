@@ -16,7 +16,6 @@ import { ProductsService } from '../../../../services/products.service';
 })
 export class DetailComponent implements OnInit {
 
-  okTest : boolean = false;
   product : Product;
   myObject = {nombre: "juan", apellido:"tafur", edad:"32"};
 
@@ -30,26 +29,27 @@ export class DetailComponent implements OnInit {
     this.start();
   }
   
-  start(): boolean{
+  start(){
     this.activatedRoute.params.subscribe((params: Params)=> {
       // para ver en pantalla que hay en la url 
       console.log(params)
       const id = params.id;
       console.log(id);
-      this.product =this.productsService.getProduct(id)
-      console.log(this.product)
+      // this.product =this.productsService.getProduct(id)
+      // console.log(this.product)
+      this.getProductById(id);
     });
-    this.okTest= true;
-    return this.okTest;
   }
 
-  Comprar(): boolean{
+  getProductById(id: number){
+    this.productsService.getProductById(id).subscribe(data=>{
+      console.log(data);
+      this.product= data;
+    });
+  }
+
+  Comprar(){
     console.log("vas a comprar");
-    this.okTest = true;
-    return this.okTest;
   }
 
-  getTestFromService() :boolean {
-    return this.productsService.getTest();
-  }
 }

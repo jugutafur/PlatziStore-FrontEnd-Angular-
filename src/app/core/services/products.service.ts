@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../models/general/general';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -51,17 +53,35 @@ export class ProductsService {
     }
   ];
 
-  constructor() { }
+  constructor(
+    private httpClient: HttpClient
+  ) { }
+  
+  getAllProductPlatzi(){
+    return this.httpClient.get<Product[]>(environment.Url_apiPlatziStore);
+  }
 
   getAllProducts() :Product[]{
     return this.products;
   }
 
+  getProductById(id: number){
+    return this.httpClient.get<Product>(`${environment.Url_apiPlatziStore}/${id}`);
+  }
   getProduct(id: string) :Product{
     return this.products.find(element => id === element.id)
   }
+
+  postProduct(product: Product){
+    return this.httpClient.post(`${environment.Url_apiPlatziStore}`, product)
+  }
+
+  // para no enviar todos los atributos se emplea Partial
+  putProduct(idProduct : number, changes: Partial<Product>){
+    return this.httpClient.put(`${environment.Url_apiPlatziStore}/${idProduct}`, changes);
+  }
   
-  getTest(): boolean{
-    return true ;
+  deleteProdut(idProduct: number){
+    return this.httpClient.delete(`${environment.Url_apiPlatziStore}/${idProduct}`);
   }
 }

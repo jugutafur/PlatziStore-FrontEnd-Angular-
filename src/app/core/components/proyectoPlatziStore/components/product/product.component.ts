@@ -9,8 +9,8 @@ import { ProductsService } from '../../../../services/products.service';
 })
 export class ProductComponent implements OnInit {
 
-  okTest :boolean = false;
   products: Product[];
+  pro : Product[]= [];
 
   @Input() Entrada;
 
@@ -26,19 +26,48 @@ export class ProductComponent implements OnInit {
   }
 
   ngOnInit(){
-    console.log("arranco")
     this.products =this.productsService.getAllProducts();
+    this.getProducts();
   }
 
-  Comprar(): boolean{
+  Comprar(){
     console.log("haz hecho click");
     this.salida.emit("Dato de Salida desde Hijo");
-    this.okTest = true;
-    return this.okTest;
-  }
-
-  getTextService(): boolean{
-    return this.productsService.getTest();
   }
   
+  getProducts(){
+    this.productsService.getAllProductPlatzi().subscribe(data=>{
+      this.pro = data;
+      console.log(data)
+    })
+  }
+
+  CrearProduct(){
+    const newProduct : Product = {
+      id: "300",
+      image: "assets/images/sudadera.png",
+      title: "sudadera",
+      price: 80,
+      description: "Esta es la descripcion de sudadera"
+    }
+    this.productsService.postProduct(newProduct).subscribe(data=>{
+      console.log(data);
+    });
+  }
+
+  // Partial quiere decir que aunque esta modelado con Product no va a enviar todos los atributos 
+  EditarProduct(){
+    const newProperties: Partial<Product> = {
+      description: "desde angular"
+    }
+    this.productsService.putProduct(1212, newProperties).subscribe(data=>{
+      console.log(data);
+    });
+  }
+
+  DeleteProduct(){
+    this.productsService.deleteProdut(12).subscribe(data=>{
+      console.log(data);
+    });
+  }
 }

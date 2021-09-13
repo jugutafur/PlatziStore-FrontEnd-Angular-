@@ -1,7 +1,17 @@
-<div>
-    <p>{{product.title}}</p>
-    <img [src]="product.image" alt="">
-    <p>Description: {{product.description}}</p>
-    <p>Price{{product.price | currency: 'USD'}}</p>
-    <button (click)="Comprar()" >Comprar!!</button>
+<div *ngIf="product">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>{{product.title}}</mat-card-title>
+            <mat-card-subtitle>{{product.price | currency: 'USD'}}</mat-card-subtitle>
+        </mat-card-header>
+            <div class="crop-image">
+                <img [src]="product.image" alt="">
+            </div>
+        <mat-card-content>
+            Description: {{product.description}}
+        </mat-card-content>
+        <mat-card-actions>
+            <button (click)="Comprar()" >Comprar!!</button>
+        </mat-card-actions>
+    </mat-card>
 </div>

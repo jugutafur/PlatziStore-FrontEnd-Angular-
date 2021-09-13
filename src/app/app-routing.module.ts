@@ -25,6 +25,10 @@ const routes: Routes = [
     component: LPlatziStoreComponent,
     loadChildren: () => import('./core/components/proyectoPlatziStore/platziStore.module').then(m=> m.PlatziStoreModule)
   },
+  {
+    path:'Admin',
+    loadChildren: () => import('./core/components/admin/admin.module').then(m => m.AdminModule)
+  },
   { 
     path: '**', 
     component: PageNotFoundComponent
