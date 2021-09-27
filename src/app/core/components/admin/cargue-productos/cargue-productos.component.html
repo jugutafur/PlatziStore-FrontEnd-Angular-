@@ -1,0 +1,136 @@
+<div class="container-fluid mt-5 mb-5 pt-5 pb-5">
+    <div class="cols-sm-12 mt-5 mb-5">
+        <mdb-card>
+            <mdb-card-header class="info-color white-text text-center py-4">
+                <h5>
+                    Cargue productos
+                </h5>
+            </mdb-card-header>
+            <mdb-card-body class="px-lg-5 pt-0">
+                <br>
+                <section>
+                    <div class="row panel-file">
+                      <div class="col-md-12">
+                        <div class="file-field md-form">
+                          <div mdbBtn  size="md" color="amber" mdbWavesEffect>
+                            <mdb-icon fas icon="file-excel" aria-hidden="true"></mdb-icon>
+                          </div>
+                          <div class="file-path-wrapper mt-3">
+                            <input class="file-path" type="text" multiple="false" readonly
+                              placeholder="Arrastra o selecciona el archivo de Excel aquí" [value]="showFiles()">
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-12">
+                            <h5>Nota: Antes de seleccionar o arrastrar el archivo de Excel, verifique que la estructura concuerde
+                              con la plantilla</h5>
+                          </div>
+                        </div>
+                        <input type="file" class="file-area" accept=".xls,.xlsx" #file mdbFileSelect
+                          (uploadOutput)="onUploadOutput($event)" [uploadInput]="uploadInput">
+                      </div>
+                    </div>
+                    <br>
+                    <div class="col-md-12 mt-12 text-right">
+                      <Button [disabled]="processStarted" mdbBtn 
+                        style="background-color:#5c6bc0!important;  font-weight: bold; color:white" (click)="uploadFile()"
+                        mdbWavesEffect color="danger" type="button">
+                        Subir archivo
+                      </Button>
+                      <a class="btn btn-info btn-rounded" href="../../../../assets/templates/finalizacionCiclo.xlsx">
+                        Descargar plantilla
+                      </a>
+                      <Button *ngIf="results" mdbBtn  mdbWavesEffect color="success" type="button"
+                        (click)="downloadResults()">
+                        Descargar resultados
+                      </Button>
+                      <Button mdbBtn  mdbWavesEffect color="warning" type="button" (click)="clearFile()">
+                        Limpiar
+                      </Button>
+                    </div>
+                  </section>
+                  <br>
+                  <br>
+                  <section>
+                    <div class="row" *ngIf="processStarted">
+                      <div class="col-12 text-center">
+                        <div class="progress">
+                          <div class="progress-bar" role="progressbar" [ngStyle]="{'width': (progressValue+'%')}"
+                            aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                            {{progressValue}}%
+                          </div>
+                        </div>
+                        <h3>{{!results?'Cargando':'Finalizado'}}: Registros almacenados: {{loadedRows}}, con errores:
+                          {{errorRows}}</h3>
+                      </div>
+                    </div>
+                    <div class="table-height">
+                      <table #table class="table table-bordered table-responsive-md text-center table-sticky mb-5">
+                        <thead>
+                          <tr>
+                            <th class="text-center align-middle"><strong>referencia</strong></th>
+                            <th class="text-center align-middle"><strong>nombre</strong></th>
+                            <th class="text-center align-middle"><strong>precio</strong></th>
+                            <th class="text-center align-middle"><strong>descripcion</strong></th>
+                            <th class="text-center align-middle"><strong>url_imagen</strong></th>
+                            <th class="text-center align-middle"><strong>imagen</strong></th>
+                            <th class="text-center align-middle"><strong>fecha_Actualizacion</strong></th>
+                            <th class="text-center align-middle"><strong>fecha_Cargue</strong></th>
+                            <th class="text-center align-middle"><strong>¿Registrado?</strong></th>
+                            <th class="text-center align-middle"><strong>Resultado</strong></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngIf="!readFile || !readFile.length">
+                            <td colspan="8">No hay registros cargados</td>
+                          </tr>
+                          <tr
+                            *ngFor="let r of readFile | slice: (curPage * pageSize) - pageSize :curPage * pageSize; let k = index;">
+          
+                            <td style="font-size: 18px!important; width: 5%" class="text-center align-middle">{{k+1}}
+                            </td>
+                            <td style="font-size: 18px!important; width: 5%" class="text-center align-middle">{{
+                              r['llave_mintic']}}</td>
+                            <td style="font-size: 18px!important; width: 10%" class="text-center align-middle">
+                              {{r['numero_documento']}}</td>
+                            <td style="font-size: 18px!important; width: 5%" class="text-center align-middle">{{r['ciclo']}}</td>
+                            <td style="font-size: 18px!important; width: 5%" class="text-center align-middle">{{r['estado']}}</td>
+                            <td style="font-size: 18px!important; width: 5%" class="text-center align-middle">
+                              {{r['fecha_actualizacion'] | date: 'dd/MM/yyyy'}}</td>
+                            <!-- <td style="font-size: 18px!important; width: 5%" class="text-center align-middle">
+                              <mdb-icon class="text-success" *ngIf="r['registrado']=='1'" tooltip="Registro exitoso" fas
+                                icon="check" aria-hidden="true"></mdb-icon>
+                              <mdb-icon class="text-danger" *ngIf="r['registrado']=='0'" tooltip="Registro fallido" fas
+                                icon="exclamation" aria-hidden="true"></mdb-icon>
+                              <mdb-icon *ngIf="r['registrado']==null" fas icon="question" tooltip="Sin registrar"
+                                aria-hidden="true"></mdb-icon>
+                              &nbsp;{{r['registrado']=='1'?'Sí':'No'}}
+                            </td> -->
+                            <td style="font-size: 18px!important; width: 5%" class="text-center align-middle">
+                              {{r['estado_descripcion']?r['estado_descripcion']:'Sin subir'}}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    
+                    <p class="pagination" *ngIf="readFile&&readFile.length">
+          
+                      <!-- <Button class="btn-purple" mdbBtn  mdbWavesEffect color="success" type="button"
+                        [disabled]="curPage == 1" (click)="curPage = curPage - 1">
+                        << </Button> -->
+                          <span>Página&nbsp;
+                            <!-- <input mdbInput type="number" (keyup.enter)="toPage($event)" name="curPage" [(ngModel)]="curPage" class="form-control"> -->
+                            <!-- {{curPage}}  -->
+                            &nbsp;de {{ numberOfPages() }}</span>
+                          <Button class="btn-purple" mdbBtn  mdbWavesEffect color="success" type="button"
+                            [disabled]="curPage >= readFile.length/pageSize" (click)="curPage = curPage + 1">
+                            >>
+                          </Button>
+                    </p>
+                  </section>
+            </mdb-card-body>
+        </mdb-card>
+    </div>
+</div>
+
+<p>dfsfsdf</p>

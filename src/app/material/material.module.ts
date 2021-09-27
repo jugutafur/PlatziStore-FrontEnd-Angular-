@@ -19,6 +19,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatTreeModule } from '@angular/material/tree';
 
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+
 @NgModule({
   declarations: [],
   imports: [
@@ -39,7 +41,8 @@ import { MatTreeModule } from '@angular/material/tree';
     MatSortModule,
     MatGridListModule,
     MatMenuModule,
-    MatTreeModule
+    MatTreeModule,
+    MDBBootstrapModule
   ],
   exports:[
     MatButtonModule,
@@ -58,7 +61,8 @@ import { MatTreeModule } from '@angular/material/tree';
     MatSortModule,
     MatGridListModule,
     MatMenuModule,
-    MatTreeModule
+    MatTreeModule,
+    MDBBootstrapModule
   ]
 })
 export class MaterialModule { }

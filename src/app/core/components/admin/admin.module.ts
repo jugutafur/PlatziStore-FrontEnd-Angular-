@@ -7,6 +7,7 @@ import { NavegationComponent } from './navegation/navegation.component';
 import { TableComponent } from './table/table.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TreeComponent } from './tree/tree.component';
+import { CargueProductosComponent } from './cargue-productos/cargue-productos.component';
 
 import { MaterialModule } from '../../../material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -17,7 +18,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     NavegationComponent, 
     TableComponent, 
     DashboardComponent, 
-    TreeComponent
+    TreeComponent, 
+    CargueProductosComponent
   ],
   imports: [
     CommonModule,

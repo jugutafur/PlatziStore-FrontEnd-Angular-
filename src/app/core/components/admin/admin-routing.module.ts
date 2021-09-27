@@ -6,6 +6,7 @@ import { AddressFormComponent } from './address-form/address-form.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TableComponent } from './table/table.component';
 import { TreeComponent } from './tree/tree.component';
+import { CargueProductosComponent } from './cargue-productos/cargue-productos.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,10 @@ const routes: Routes = [
       {
         path:'Tree',
         component: TreeComponent
+      },
+      {
+        path:'Cargue',
+        component: CargueProductosComponent
       }
     ]
   }
