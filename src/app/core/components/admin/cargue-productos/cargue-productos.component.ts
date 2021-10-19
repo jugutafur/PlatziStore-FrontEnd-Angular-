@@ -7,7 +7,6 @@ import { ExcelService } from '../../../services/Comun/Excel/excel.service';
 import { CargueProductosService } from '../../../services/Admin/cargue-productos.service';
 import { Utils } from '../../../utils/Utils';
 //import * as moment from 'moment'; 
-
 @Component({
   selector: 'app-cargue-productos',
   templateUrl: './cargue-productos.component.html',
@@ -21,8 +20,8 @@ export class CargueProductosComponent implements OnInit{
   dragOver: boolean;
   arrayBuffer: any;
   public readFile: Array<ProductoCargueMasivo> = new Array<ProductoCargueMasivo>();
-  public loading :boolean = false;
-  public results: boolean = false;
+  public loading = false;
+  public results = false;
   @ViewChild("file", {}) file: ElementRef;
   @ViewChild('table') table: any;
   public loadedRows = 0;
@@ -57,6 +56,7 @@ export class CargueProductosComponent implements OnInit{
     return files+(files!=''&&this.readFile&&this.readFile.length?' - Total registros: ' + this.readFile.length: '');
   }
 
+  
   numberOfPages(){
     return Math.ceil(this.readFile.length/this.pageSize);
   }
@@ -187,5 +187,9 @@ export class CargueProductosComponent implements OnInit{
 
   toPage(i){
     if(i!=null)this.curPage = this.curPage + 1
+  }
+
+  verifiacarEvent(){
+    alert("prueba");
   }
 }

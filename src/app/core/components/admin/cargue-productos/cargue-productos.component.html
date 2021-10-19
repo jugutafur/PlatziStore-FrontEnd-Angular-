@@ -27,7 +27,7 @@
                           </div>
                         </div>
                         <input type="file" class="file-area" accept=".xls,.xlsx" #file mdbFileSelect
-                          (uploadOutput)="onUploadOutput($event)" [uploadInput]="uploadInput">
+                          (uploadOutput)="onUploadOutput($event)" >
                       </div>
                     </div>
                     <br>
@@ -37,7 +37,7 @@
                         mdbWavesEffect color="danger" type="button">
                         Subir archivo
                       </Button>
-                      <a class="btn btn-info btn-rounded" href="../../../../assets/templates/finalizacionCiclo.xlsx">
+                      <a class="btn btn-info btn-rounded" href="../../../../assets/templates/productos.xlsx">
                         Descargar plantilla
                       </a>
                       <Button *ngIf="results" mdbBtn  mdbWavesEffect color="success" type="button"
@@ -87,16 +87,12 @@
                           <tr
                             *ngFor="let r of readFile | slice: (curPage * pageSize) - pageSize :curPage * pageSize; let k = index;">
           
-                            <td style="font-size: 18px!important; width: 5%" class="text-center align-middle">{{k+1}}
-                            </td>
-                            <td style="font-size: 18px!important; width: 5%" class="text-center align-middle">{{
-                              r['llave_mintic']}}</td>
-                            <td style="font-size: 18px!important; width: 10%" class="text-center align-middle">
-                              {{r['numero_documento']}}</td>
-                            <td style="font-size: 18px!important; width: 5%" class="text-center align-middle">{{r['ciclo']}}</td>
-                            <td style="font-size: 18px!important; width: 5%" class="text-center align-middle">{{r['estado']}}</td>
-                            <td style="font-size: 18px!important; width: 5%" class="text-center align-middle">
-                              {{r['fecha_actualizacion'] | date: 'dd/MM/yyyy'}}</td>
+                            <td style="font-size: 18px!important; width: 5%" class="text-center align-middle"> {{k+1}}</td>
+                            <td style="font-size: 18px!important; width: 5%" class="text-center align-middle"> {{r['llave_mintic']}}</td>
+                            <td style="font-size: 18px!important; width: 10%" class="text-center align-middle">{{r['numero_documento']}}</td>
+                            <td style="font-size: 18px!important; width: 5%" class="text-center align-middle"> {{r['ciclo']}}</td>
+                            <td style="font-size: 18px!important; width: 5%" class="text-center align-middle"> {{r['estado']}}</td>
+                            <td style="font-size: 18px!important; width: 5%" class="text-center align-middle"> {{r['fecha_actualizacion'] | date: 'dd/MM/yyyy'}}</td>
                             <!-- <td style="font-size: 18px!important; width: 5%" class="text-center align-middle">
                               <mdb-icon class="text-success" *ngIf="r['registrado']=='1'" tooltip="Registro exitoso" fas
                                 icon="check" aria-hidden="true"></mdb-icon>
@@ -106,8 +102,7 @@
                                 aria-hidden="true"></mdb-icon>
                               &nbsp;{{r['registrado']=='1'?'Sí':'No'}}
                             </td> -->
-                            <td style="font-size: 18px!important; width: 5%" class="text-center align-middle">
-                              {{r['estado_descripcion']?r['estado_descripcion']:'Sin subir'}}</td>
+                            <td style="font-size: 18px!important; width: 5%" class="text-center align-middle"> {{r['estado_descripcion']?r['estado_descripcion']:'Sin subir'}}</td>
                           </tr>
                         </tbody>
                       </table>
@@ -133,4 +128,6 @@
     </div>
 </div>
 
-<p>dfsfsdf</p>
+<button (click)="verifiacarEvent()">btton 1</button>
+<br><br>
+<p (click)="verifiacarEvent()">prueba1 </p>
